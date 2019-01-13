@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="<?= asset('css/bootstrap.min.css') ?>">
+		<link rel="stylesheet" href="<?= asset('css/font-awesome.css') ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta charset="utf-8">
 		<title><?= $viewTitle ?></title>
@@ -48,9 +49,6 @@
 				    	</div>
 				  	</div>
 				</div>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link disabled" href="#">About us</a>
 		      </li>
 		    </ul>
 		  </div>
