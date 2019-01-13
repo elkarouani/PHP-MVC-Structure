@@ -7,6 +7,8 @@
 
 		public function createArticle($post) {$this->insert('articles', $post);}
 
+		public function updateArticle($post) {$this->update('articles', $post);}
+
 		public function getInfoArticles($id){
 			return $this->getInfoById('articles', 'Article', $id);	
 		}

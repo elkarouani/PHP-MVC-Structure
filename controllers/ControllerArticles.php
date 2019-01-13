@@ -2,21 +2,18 @@
 	require_once('views/View.php');
 	require_once('models/ArticleManager.php');
 
-	class ControllerArticles
-	{
+	class ControllerArticles {
 		private $_articleManager;
 		private $_view;
 		
-		public function __construct($url, $post = null)
-		{
+		public function __construct($url, $post = null) {
 			if(isset($url) && count($url) > 2) {throw new Exception("Page introuvable");}
-			elseif($url[1] === "create"){
-				$this->createArticle($post);
-			}
+			elseif($url[1] === "create"){$this->createArticle($post);}
+			elseif ($url[1] === "edit") {$this->updateArticle($post);}
 			else{$this->infoArticle($url[1]);}
 		}
 
-		private function infoArticle($id){
+		private function infoArticle($id) {
 			$this->_articleManager = new ArticleManager;
 			$infos = $this->_articleManager->getInfoArticles($id);
 
@@ -25,9 +22,16 @@
 			$this->_view->generate(array('infos' => $infos));
 		}
 
-		private function createArticle($post){
+		private function createArticle($post) {
 			$this->_articleManager = new ArticleManager;
 			$this->_articleManager->createArticle($post);
+
+			header('Location: '.URL);
+		}
+
+		private function updateArticle($post) {
+			$this->_articleManager = new ArticleManager;
+			$this->_articleManager->updateArticle($post);
 
 			header('Location: '.URL);
 		}

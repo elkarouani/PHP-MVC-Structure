@@ -16,7 +16,8 @@ foreach ($infos as $info) : ?>
 				        		</button>
 				      		</div>
 				      		<div class="modal-body">
-				        		<form method="POST" action="articles/create">
+				        		<form method="POST" action="edit">
+				        			<input type="text" name="id" value="<?= $info->id()?>" hidden="hidden">
 						  			<div class="form-group">
 						    			<label for="Title">Title : </label>
 						    			<input type="text" class="form-control" id="Title" placeholder="Enter title" name="title" value="<?= $info->title()?>">

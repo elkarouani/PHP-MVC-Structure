@@ -52,5 +52,14 @@
 
 			$req->closeCursor();
 		}		
+
+		protected function update($table, $post) {
+			$requestString = 'UPDATE ' . $table . ' SET `title` = "'.$post['title'].
+			'", content = "'.$post['content'].'" WHERE `id` = "'.$post['id'].'" ;';
+			$req = $this->getBdd()->prepare($requestString);
+			$req->execute();
+
+			$req->closeCursor();
+		}
 	}
 ?>
