@@ -10,6 +10,7 @@
 			if(isset($url) && count($url) > 2) {throw new Exception("Page introuvable");}
 			elseif($url[1] === "create"){$this->createArticle($post);}
 			elseif ($url[1] === "edit") {$this->updateArticle($post);}
+			elseif ($url[1] === "delete") {$this->deleteArticle($post);}
 			else{$this->infoArticle($url[1]);}
 		}
 
@@ -23,15 +24,28 @@
 		}
 
 		private function createArticle($post) {
-			$this->_articleManager = new ArticleManager;
-			$this->_articleManager->createArticle($post);
+			if($post != []) {
+				$this->_articleManager = new ArticleManager;
+				$this->_articleManager->createArticle($post);
+			}
 
 			header('Location: '.URL);
 		}
 
 		private function updateArticle($post) {
-			$this->_articleManager = new ArticleManager;
-			$this->_articleManager->updateArticle($post);
+			if($post != []) {
+				$this->_articleManager = new ArticleManager;
+				$this->_articleManager->updateArticle($post);
+			}
+
+			header('Location: '.URL);
+		}
+
+		private function deleteArticle($post) {
+			if($post != []) {
+				$this->_articleManager = new ArticleManager;
+				$this->_articleManager->deleteArticle($post);
+			}
 
 			header('Location: '.URL);
 		}

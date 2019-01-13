@@ -61,5 +61,13 @@
 
 			$req->closeCursor();
 		}
+
+		protected function delete($table, $post) {
+			$requestString = 'DELETE FROM ' . $table . ' WHERE `id` = "'.$post['id'].'" ;';
+			$req = $this->getBdd()->prepare($requestString);
+			$req->execute();
+
+			$req->closeCursor();
+		}
 	}
 ?>

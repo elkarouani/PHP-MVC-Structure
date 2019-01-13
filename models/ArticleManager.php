@@ -9,6 +9,8 @@
 
 		public function updateArticle($post) {$this->update('articles', $post);}
 
+		public function deleteArticle($post) {$this->delete('articles', $post);}
+
 		public function getInfoArticles($id){
 			return $this->getInfoById('articles', 'Article', $id);	
 		}

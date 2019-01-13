@@ -46,7 +46,8 @@ foreach ($infos as $info) : ?>
 				        		</button>
 				      		</div>
 				      		<div class="modal-body">
-				        		<form method="POST" action="articles/create">
+				        		<form method="POST" action="delete">
+				        			<input type="text" name="id" value="<?= $info->id()?>" hidden="hidden">
 						  			<p class="border border-warning text-danger">Do you really want to delete this blog</p>
   									<div class="text-center">
 						  				<button type="submit" class="btn btn-danger" name="save">Delete</button>
