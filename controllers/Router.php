@@ -24,7 +24,7 @@
 
 					if (file_exists($controllerFile)) {
 					 	require_once($controllerFile);
-					 	$this->_ctrl = new $controllerClass($url);
+					 	$this->_ctrl = new $controllerClass($url, $_POST);
 					 } else{throw new Exception("Page Introuvable");}
 
 				}else{

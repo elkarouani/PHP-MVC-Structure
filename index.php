@@ -7,4 +7,5 @@
 
 	$router = new Router();
 	$router->routeReq();
+
 ?>

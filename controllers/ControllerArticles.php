@@ -7,9 +7,12 @@
 		private $_articleManager;
 		private $_view;
 		
-		public function __construct($url)
+		public function __construct($url, $post = null)
 		{
-			if (isset($url) && count($url) > 2) {throw new Exception("Page introuvable");}
+			if(isset($url) && count($url) > 2) {throw new Exception("Page introuvable");}
+			elseif($url[1] === "create"){
+				$this->createArticle($post);
+			}
 			else{$this->infoArticle($url[1]);}
 		}
 
@@ -20,6 +23,13 @@
 			// require_once('views/viewAcceuil.php');
 			$this->_view = new View('Article');
 			$this->_view->generate(array('infos' => $infos));
+		}
+
+		private function createArticle($post){
+			$this->_articleManager = new ArticleManager;
+			$this->_articleManager->createArticle($post);
+
+			header('Location: '.URL);
 		}
 	}
 ?>

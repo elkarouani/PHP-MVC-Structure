@@ -42,6 +42,15 @@
 			
 			$req->closeCursor();
 			return $var;
+		}
+
+		protected function insert($table, $post) {
+			$requestString = 'INSERT INTO ' . $table . '(title, content) VALUES ("'.$post['title'].'", "'.$post['content'].'") ;';
+
+			$req = $this->getBdd()->prepare($requestString);
+			$req->execute();
+
+			$req->closeCursor();
 		}		
 	}
 ?>
