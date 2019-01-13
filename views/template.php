@@ -29,7 +29,7 @@
 	</header>
 	<br><br>
 	<body>
-		<div class="card text-center" style="width: 80rem; margin-left: 50px;">
+		<div class="card text-center" style="width: 60rem; margin-left: 30px;">
 			<div class="card-header">
 	    		<h5 class="card-title">Mon Blog</h5>
 		    	<h6 class="card-subtitle mb-2 text-muted">Bienvenue sur mon blog</h6>
