@@ -9,11 +9,8 @@
 		
 		public function __construct($url)
 		{
-			if (isset($url) && count($url) > 2) {
-				throw new Exception("Page introuvable");
-			}else{
-				$this->infoArticle($url[1]);
-			}
+			if (isset($url) && count($url) > 2) {throw new Exception("Page introuvable");}
+			else{$this->infoArticle($url[1]);}
 		}
 
 		private function infoArticle($id){

@@ -7,11 +7,8 @@
 		
 		public function __construct($url)
 		{
-			if (isset($url) && count($url) > 1) {
-				throw new Exception("Page introuvable");
-			}else{
-				$this->articles();
-			}
+			if (isset($url) && count($url) > 1) {throw new Exception("Page introuvable");}
+			else{$this->articles();}
 		}
 
 		private function articles(){

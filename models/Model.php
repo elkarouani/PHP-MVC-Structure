@@ -10,34 +10,38 @@
 
 		// RECUPERE LA CONNEXION A LA BDD
 		protected function getBdd(){
-			if(self::$_bdd == null){
-				$this->setBdd(); 
-			}
+			if(self::$_bdd == null){$this->setBdd();}
 			return self::$_bdd;
 		}
 
 		protected function getAll($table, $obj){
 			require_once('models/' . $obj . '.php');
+
 			$var = [];
-			$req = $this->getBdd()->prepare('SELECT * FROM ' . $table . ' ORDER BY id desc');
+			$requestString = 'SELECT * FROM ' . $table . ' ORDER BY id desc';
+
+			$req = $this->getBdd()->prepare($requestString);
 			$req->execute();
-			while($data = $req->fetch(PDO::FETCH_ASSOC)){
-				$var[] = new $obj($data);
-			}
-			return $var;
+
+			while($data = $req->fetch(PDO::FETCH_ASSOC)){$var[] = new $obj($data);}
+
 			$req->closeCursor();
+			return $var;
 		}
 
 		protected function getInfoById($table, $obj, $id){
 			require_once('models/' . $obj . '.php');
+
 			$var = [];
-			$req = $this->getBdd()->prepare('SELECT * FROM ' . $table . ' WHERE id = "' . $id . '"');
+			$requestString = 'SELECT * FROM ' . $table . ' WHERE id = "' . $id . '"';
+
+			$req = $this->getBdd()->prepare($requestString);
 			$req->execute();
-			while($data = $req->fetch(PDO::FETCH_ASSOC)){
-				$var[] = new $obj($data);
-			}
-			return $var;
+
+			while($data = $req->fetch(PDO::FETCH_ASSOC)){$var[] = new $obj($data);}
+			
 			$req->closeCursor();
+			return $var;
 		}		
 	}
 ?>
